@@ -10,7 +10,7 @@ def main():
         print(str.capitalize(sentence))
     for tense in verb_tense:
         sentence = make_sentence(quantity[1], tense)
-        print(str.capitalize(sentence))
+        print(sentence)
 
 
 def get_determiner(quantity):
@@ -59,7 +59,28 @@ def make_sentence(quantity, tense):
    determine = get_determiner(quantity)
    noun = get_noun(quantity)
    verb = get_verb(quantity, tense)
+   prepositional_phrase = get_preposition_phrase(quantity)
    #Create a sentence based the values above
-   return(f'{determine} {noun} {verb}.')
+   return(str.capitalize(f'{determine} {noun} {verb} {prepositional_phrase}.'))
+
+def get_preposition():
+    prepositions = ["about", "above", "across", "after", "along",
+      "around", "at", "before", "behind", "below",
+      "beyond", "by", "despite", "except", "for",
+      "from", "in", "into", "near", "of",
+      "off", "on", "onto", "out", "over",
+      "past", "to", "under", "with", "without"]
+    
+    preposition = random.choice(prepositions)
+    return preposition
+
+def get_preposition_phrase(quantity):
+   noun = get_noun(quantity)
+   determiner = get_determiner(quantity)
+   preposition = get_preposition()
+
+   preposition_frase = (f'{preposition} {determiner} {noun}')
+   return preposition_frase
+   
 
 main()
