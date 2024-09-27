@@ -64,6 +64,7 @@ def make_sentence(quantity, tense):
    return(str.capitalize(f'{determine} {noun} {verb} {prepositional_phrase}.'))
 
 def get_preposition():
+    #Return a randomly chosen preposition from this list of prepositions
     prepositions = ["about", "above", "across", "after", "along",
       "around", "at", "before", "behind", "below",
       "beyond", "by", "despite", "except", "for",
@@ -75,6 +76,7 @@ def get_preposition():
     return preposition
 
 def get_preposition_phrase(quantity):
+   #"Build and return a prepositional phrase composed of three words.
    noun = get_noun(quantity)
    determiner = get_determiner(quantity)
    preposition = get_preposition()
